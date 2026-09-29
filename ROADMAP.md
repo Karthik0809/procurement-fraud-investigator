@@ -1,104 +1,149 @@
-# Roadmap: from skeleton to winning submission
+# Roadmap
+
+Built from the official Welcome Guide, Overview, Participant Journey Map, Event Calendar and FAQ.
+All times are UTC. **Official Rules on the event page override everything here.**
 
 Scoring: **Impact 30 · Technical 20 · Innovation 15 · Demo 15 · Product & UX 10 · Sponsor Tech 10**
 
-> ⚠️ **Rules check first.** Before 15 Oct, read the Official Rules on HackOS to see what may exist
-> before the build window opens (15 Oct 00:00 UTC). If pre-written code isn't allowed for your track,
-> treat this repo as a **design reference**: rebuild it during the build window and keep the commit
-> history honest. (The Tinkerer Track explicitly judges only work done during the hackathon.)
-
 ---
 
-## ✅ Already working (skeleton)
+## 🚨 Rule that shapes everything: pre-hackathon code
 
-- [x] LangGraph loop: Planner → Hypothesis → Skeptic ⇄ Investigator → Reporter
-- [x] 6 deterministic red-flag detectors (rotation, cover bidding, shared officer, shared address, sanctions fuzzy match, single bidder)
-- [x] Skeptic with innocent-explanation checks, follow-up questions, and human escalation when the budget runs out
-- [x] Evidence store: every claim has an ID that points back to source rows
-- [x] Full reasoning trace
-- [x] FastAPI + React UI (graph, risk networks, evidence, trace)
-- [x] Synthetic dataset with planted fraud + 4 decoys, end-to-end tests
-- [x] NVIDIA NIM wrapper with offline fallback
+> FAQ: *"Can I use code I wrote before the hackathon? **No.** Projects in the four main tracks must be
+> built during the build window. The Tinkerer Track is the only exception."*
 
----
+The code in this repo was written **before** 15 Oct. There are two legitimate paths:
 
-## Before 15 Oct: prep (no build-window code)
-
-- [ ] Attend or watch the **Zetaris (7 Oct)**, **NVIDIA (8 Oct)** and **Meterless (12 Oct)** workshops. Note exact APIs and SDKs.
-- [ ] Decide where **Meterless** fits (check whether it helps with metering/billing of agent runs; if not, skip it; sponsor points come mainly from meaningful use)
-- [ ] Get an NVIDIA API key; pick the model (a strong instruct model for the Skeptic/Reporter, a smaller one for the Planner)
-- [ ] Shortlist real datasets (below) and check licences and rate limits
-- [ ] Find 2–3 **real prosecuted bid-rigging cases** (DOJ Antitrust Division press releases, UK CMA cases) for validation
-- [ ] Assign owners: agents / data+Zetaris / detectors+validation / UI+demo
-
-## Day 1 (15 Oct): real data and sponsor integration
-- [ ] **Zetaris**: register sources (contracts, company registry, sanctions) as separate federated sources and implement `ZetarisSource` in `backend/app/tools/data_sources.py`. Keep column names identical to the CSVs.
-- [ ] Ingest one real market end to end (choose ONE country; recommended options below)
-- [ ] Switch `DATA_BACKEND=zetaris` and confirm the sample scenario still passes the tests
-- [ ] Set `NVIDIA_API_KEY` and confirm the Planner and Reporter use NIM
-
-### Data sources
-
-| Need | Source | Note |
+| | **Path A: Track 3, fresh build** | **Path B: Tinkerer Track** |
 |---|---|---|
-| Contract awards | USAspending.gov API (US), Contracts Finder (UK), TED (EU) | Awards only, not losing bids |
-| **Bid-level data** | OCDS publishers such as Ukraine's Prozorro | Losing bids are rare in public data; check coverage before committing |
-| Company officers/owners | OpenCorporates, UK Companies House API (free, excellent officer data) | UK is the easiest market for officer links |
-| Sanctions | OpenSanctions | Has good entity-matching docs |
+| What happens to this code | Not submitted. Keep it as a private prototype. On 15 Oct, start a **new repo** and write the code again during the window. | This repo *is* the "existing prototype". It's tagged `pre-hackathon-prototype`. |
+| What's judged | Everything you build 15–20 Oct | **Only** the new work after the tag |
+| Sponsor tech | Optional (10 pts) | **Required** (NVIDIA / Zetaris) |
+| Best for | Competing in the main tracks | Keeping the head start legitimately |
 
-**Recommendation:** UK (Contracts Finder + Companies House + OpenSanctions) for officer and address
-links, plus the synthetic scenario for cover bidding, since public data rarely has losing bids. Be upfront about this in the demo.
+**What you *can* carry over in both paths:** the idea, the research, the architecture plan, dataset
+choices and the demo script. Concepts are fine; code is not. Don't copy code files into a Path A repo.
 
-## Days 2–3: make the agents truly agentic
-- [ ] **LLM Skeptic**: after the rule checks, ask the LLM for *additional* innocent explanations, then have it *request a tool call* to test each one. This is the biggest innovation lever.
-- [ ] **Tool-calling Investigator**: let the LLM choose which check to run (function calling over `CHECKS`) instead of a fixed mapping
-- [ ] **Dynamic replanning**: if the Skeptic rejects most hypotheses, the Planner widens the scope (more agencies or years) and re-runs
-- [ ] New detectors: **split purchasing** (contracts just under approval thresholds), **new-company wins** (registered shortly before a large award), **price outliers** vs. the category median, **bidder address = official's address** (conflict of interest)
-- [ ] Better entity resolution: transliteration, token-sort matching, date of birth where available
-- [ ] **Shared memory** across investigations: known registered-agent addresses and nominee services the Skeptic has already learned about
+**Confirm at onboarding (14 Oct Q&A):** "Can planning docs and architecture notes written before the window be reused?" Also: how Tinkerer prizes compare with main-track prizes.
+Track changes are allowed **until the end of 15 Oct**; after that the track is locked.
 
-## Day 4: graph and data depth
-- [ ] Move relationships into **Neo4j** (companies, people, addresses, tenders) and add multi-hop queries such as "director of X is a shareholder of Y which subcontracts to Z"
-- [ ] Persist investigations in **PostgreSQL** (replace the in-memory dict in `main.py`)
-- [ ] Failure handling: data source down → partial results + a note in the trace; LLM timeout → fallback (already built in)
+---
 
-## Day 5: validation and UX (this is where you win)
-- [ ] **Validation run**: point the system at a real prosecuted case → show "flagged before the indictment". This becomes your headline demo moment.
-- [ ] **Metrics**: precision on the planted and real cases; time vs. manual review (e.g. "3 weeks → 4 minutes")
-- [ ] UI: **stream the trace live** (SSE or WebSocket) so judges watch the agents argue in real time
-- [ ] UI: click a graph edge → show its evidence and the Skeptic's verdict; animate rejected edges fading out
-- [ ] UI: export the auditor briefing as PDF
-- [ ] Clean setup test: fresh clone → `docker compose up` → working demo
+## 📊 Data rules (FAQ)
+- Use **open, legally usable** data. **Avoid real personal data.**
+  - Contract awards (organisations) are OK.
+  - Company registries are OK at company level. **Director and officer names are personal data, so use synthetic or pseudonymised people** (e.g. hashed IDs), or leave people out.
+  - Sanctions lists name real people, so keep the sanctions scenario **synthetic**.
+- Keep the repo light: **samples only**, not full datasets.
+- **Fallback mode is required** if an external API is down. (Already designed: `DATA_BACKEND=local` sample data plus the LLM fallback.)
 
-## Day 6: submission (deadline 20 Oct, 23:45 UTC)
-- [ ] 3-minute demo video (script below)
-- [ ] README: problem, architecture diagram, sponsor tech usage, how to run, limitations
-- [ ] Check for committed secrets: `git log -p | grep -i "api_key\|password"`
-- [ ] Submit on HackOS with the repo link, video, track (Track 3) and team
+---
+
+## 🗓️ Calendar
+
+### Pre-event
+| Date | Action | Done |
+|---|---|---|
+| Now | Register on hackathon.genai.works, complete HackOS profile (skills, track, team preference) | [ ] |
+| Now | Recruit teammates on HackOS (Backend, Data Scientist, Full Stack, ML/AI) | [ ] |
+| Now | Research datasets and **real public cases** (company-level) for validation | [ ] |
+| **7 Oct 16:00** | **Zetaris workshop**: how to register sources and run federated queries | [ ] |
+| **8 Oct 16:00** | **NVIDIA workshop**: NIM models, tool calling, API key | [ ] |
+| **12 Oct 12:00** | ⏰ Registration reminder (closes 13 Oct 00:00, hard deadline) | [ ] |
+| **12 Oct 16:00** | **Meterless workshop**: decide whether it has a real role | [ ] |
+| By 14 Oct | Complete sponsor access/setup (keys, accounts) | [ ] |
+| **14 Oct 16:00** | **Onboarding**: confirm track and team, join the track room, ask the rules questions above | [ ] |
+
+### Build window: 15 Oct 00:00 → 20 Oct 23:45 (144 h)
+
+**15–16 Oct: lock and build the minimal loop**
+- [ ] Final track decision (locks at the end of 15 Oct)
+- [ ] Set up the repo (fresh repo for Path A), `.env.example`, `.gitignore`
+- [ ] Data layer through **Zetaris** (contracts / company registry / synthetic officers and sanctions as separate sources)
+- [ ] Agent loop working end to end: Planner → Hypothesis → Skeptic ⇄ Investigator → Reporter
+- [ ] **NVIDIA NIM** connected; logging and trace from the first run
+
+**17 Oct 16:00: ⏰ mid-build check.** Ask: *"If the deadline were tomorrow, what would fail?"*
+- [ ] Minimal end-to-end version works
+- [ ] Sponsor tech connected and tested
+- [ ] Agent activity logged
+- [ ] Initial input/output examples exist
+- [ ] Blockers raised with mentors
+
+**17–18 Oct: deepen agent behaviour** (what judges reward)
+- [ ] **LLM Skeptic**: proposes innocent explanations and chooses which checks to run (tool calling). This avoids the "rule functions labelled as agents" critique.
+- [ ] **Skeptic → Planner re-planning**: if evidence is insufficient, the Planner revises the scope or detectors (the official "strong pattern")
+- [ ] **Dynamic delegation**: the Investigator picks tools based on context
+- [ ] **Shared memory across runs**: learned registered-agent addresses and nominee services
+- [ ] Retries and fallbacks: data source down → partial result + trace note
+- [ ] **More than one case** (required: "sample inputs and outputs… more than one case"):
+  1. Colluding ring (should flag)
+  2. **Clean market (should flag nothing)**, which proves it isn't a hardcoded demo path
+  3. Real company-level data from one country
+- [ ] More detectors: split purchasing, new-company wins, price outliers
+
+**19 Oct: freeze features, harden, package**
+- [ ] ⛔ Feature freeze
+- [ ] Clean setup test: fresh clone → `docker compose up` → works with **no manual steps**
+- [ ] Credentials only from env vars; `git log -p | grep -iE "api_key|password|token"` is clean
+- [ ] README: setup, run, env vars, agent description
+- [ ] `docs/ARCHITECTURE.md` and `docs/SPONSOR_TECH.md` finalised
+- [ ] Sample inputs and outputs saved in `samples/`
+- [ ] **Deploy the live demo** (required link), e.g. Render/Railway/Fly for the backend and Vercel for the frontend, in offline-fallback mode if keys can't be shared
+- [ ] **Record the demo video** (script below) and upload it to Google Drive (required link)
+
+**20 Oct: submit**
+- [ ] **12:00 ⏰ final validation**: every link opens in an incognito window
+- [ ] Submit on HackOS: name, description, team, track, GitHub + live demo + Drive links, video, explanation (problem / solution / tech / sponsor tech)
+- [ ] 🎯 **Aim to submit by 18:00**. The hard deadline is 23:45 and there are no fixes after it.
+
+### After submission
+| Date | Action |
+|---|---|
+| 20–30 Oct | Check HackOS Announcements daily and reply quickly if judges ask for clarification |
+| **30 Oct 16:00** | Results call on HackOS |
+| After | GenAI Works Discord community |
+
+---
+
+## ✅ Official success checklist, mapped to our plan
+
+| Question | How we answer "yes" |
+|---|---|
+| One track, clearly defined problem? | Track 3 (or Tinkerer); procurement auditors, fraud risk networks |
+| Scoped tightly enough to work reliably? | One country, 6–9 detectors, sample-data fallback |
+| Value to a real user? | Weeks of manual cross-referencing become minutes, with evidence |
+| Distinct, meaningful roles? | Planner / Hypothesis / Skeptic / Investigator / Reporter |
+| Agents interact more than once? | Skeptic ⇄ Investigator loop + Skeptic → Planner re-plan |
+| Critique, retry, escalation? | Skeptic critique, follow-ups, human escalation, fallbacks |
+| Logs show reasoning? | Full trace in the UI and saved with each sample output |
+| Clean setup, no manual steps? | `docker compose up`, with `.env` optional |
+| Graceful failure? | LLM fallback, data fallback, partial results |
+| Output usable by the user? | Ranked risk networks, evidence, dismissed flags, exportable briefing |
+| Sponsor tech documented? | `docs/SPONSOR_TECH.md` |
+
+## ⚠️ What judges discount, and how we avoid it
+| Discounted | Our guard |
+|---|---|
+| Hardcoded demo paths | Multiple cases, including a clean market that flags nothing |
+| Single-agent presented as multi-agent | LLM-driven Skeptic and Investigator with real tool choice |
+| Sponsor tech bolted on | Zetaris is the data layer itself; NIM drives the reasoning |
+| Unsupported claims of value | Validation against real public cases plus a time-saved measurement |
+| UI polish without depth | UI shows the trace and evidence, i.e. the depth |
 
 ---
 
 ## 🎬 Demo video script (3 min)
+1. **0:00–0:20 Hook.** "Procurement fraud drains public budgets. Auditors cross-reference registries by hand for weeks. Watch our agents do it in minutes, and argue with each other."
+2. **0:20–1:30 Live run.** The trace streams. The Skeptic challenges, the Investigator fetches, and a decoy is **explained away** (registered-agent address).
+3. **1:30–2:15 The why.** Top network: rotation + cover bids + shared officer + shared address, each with an evidence ID.
+4. **2:15–2:35 Not hardcoded.** Run the clean-market case: nothing flagged.
+5. **2:35–3:00 Architecture and sponsor tech.** Zetaris federation (data stays at the source), NVIDIA NIM reasoning, human escalation.
 
-1. **0:00–0:20 Hook.** "Procurement fraud costs governments billions each year. Auditors spend weeks
-   cross-referencing registries by hand. Watch our agents do it in minutes, and argue with themselves."
-2. **0:20–1:30 Live run.** Click Run. The trace streams. Point at the Skeptic challenging, the Investigator
-   fetching, and a decoy being **explained away** ("registered-agent address, 4 companies"). This
-   shows judges you are not flagging everything.
-3. **1:30–2:15 The why.** Open the top network: rotation + cover bids + shared director + shared
-   address, each with an evidence ID. Show the sanctions hit that needed an extra loop.
-4. **2:15–2:40 Real-world validation.** Show a real case the system flagged.
-5. **2:40–3:00 Architecture and sponsor tech.** Zetaris federation (data stays at the source), NVIDIA NIM
-   reasoning, human-in-the-loop escalation.
-
-## 🏆 What makes this outstanding (checklist for judges)
-
-| Judges look for | Where we show it |
+## Data sources (company-level, open)
+| Need | Source |
 |---|---|
-| Not a pipeline | Skeptic ⇄ Investigator loop with follow-ups and escalation |
-| Critique/validation | The Skeptic dismisses 5 of 12 hypotheses, with reasons |
-| Shared memory/context | Evidence store + (Day 3) learned registered-agent list |
-| Branching/retries/recovery | Follow-up questions, iteration budget, LLM fallback, partial results |
-| Logs/traces | Full reasoning trace, streamed live |
-| Real problem | Auditor persona, real case validation, time saved |
-| Sponsor tech meaningfully | Zetaris federation is essential (the data really is fragmented); NVIDIA powers reasoning |
+| Contract awards | USAspending.gov (US), Contracts Finder (UK), TED (EU) |
+| Bid-level data | OCDS publishers (e.g. Ukraine Prozorro). Check coverage first. |
+| Company registry | UK Companies House / OpenCorporates (**company fields only**; pseudonymise people) |
+| Sanctions | **Synthetic** (real lists name real people) |

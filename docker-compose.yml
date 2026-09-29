@@ -1,7 +1,10 @@
 services:
   backend:
     build: ./backend
-    env_file: .env
+    # .env is optional: without it the app runs in offline mode on the sample data (no manual steps)
+    env_file:
+      - path: .env
+        required: false
     ports: ["8000:8000"]
 
   frontend:
@@ -11,7 +14,7 @@ services:
     ports: ["5173:5173"]
     depends_on: [backend]
 
-  # Uncomment on Day 4 when moving the relationship graph into Neo4j (see ROADMAP.md)
+  # Uncomment when moving the relationship graph into Neo4j (see ROADMAP.md)
   # neo4j:
   #   image: neo4j:5
   #   environment:

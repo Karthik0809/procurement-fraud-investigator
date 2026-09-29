@@ -1,0 +1,17 @@
+[01] it0 Planner      plan                   No specific question — running the full detector suite.
+[02] it0 Hypothesis   detect                 bid_rotation: 0 signal(s)
+[03] it0 Hypothesis   detect                 cover_bidding: 0 signal(s)
+[04] it0 Hypothesis   detect                 shared_officer: 0 signal(s)
+[05] it0 Hypothesis   detect                 shared_address: 0 signal(s)
+[06] it0 Hypothesis   detect                 sanctions_match: 1 signal(s)
+[07] it0 Hypothesis   detect                 single_bidder: 1 signal(s)
+[08] it0 Hypothesis   propose                Proposed 2 hypotheses for scrutiny
+[09] it1 Skeptic      challenge              H01 (sanctions_match): need identity_verification before I accept this
+[10] it1 Skeptic      challenge              H02 (single_bidder): need corroboration before I accept this
+[11] it1 Investigator identity_verification  H01: Officer nationality CY vs sanctions entry country CY: consistent
+[12] it1 Investigator corroboration          H02: 1 other open red flag(s) involve the same companies: H01
+[13] it2 Skeptic      follow_up              H01: Identity is consistent. Before escalating, check whether this company shows other red flags.
+[14] it2 Skeptic      supported              H02: Sole-bidder wins corroborated by H01.
+[15] it2 Investigator corroboration          H01: 1 other open red flag(s) involve the same companies: H02
+[16] it3 Skeptic      supported              H01: Identity consistent and corroborated by H02.
+[17] it3 Reporter     report                 1 risk network(s), 0 red flag(s) explained away

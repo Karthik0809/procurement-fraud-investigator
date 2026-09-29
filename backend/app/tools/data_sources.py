@@ -70,7 +70,7 @@ class ZetarisSource:
 
 
 def get_source() -> DataSource:
-    if settings.data_backend == "zetaris":
+    if settings.data_backend == "zetaris" and not settings.sample_mode:
         return ZetarisSource(settings.zetaris_url, settings.zetaris_user, settings.zetaris_password)
     return LocalCSVSource(settings.data_path)
 

@@ -1,0 +1,1770 @@
+{
+  "id": "6f9d4640",
+  "request": {
+    "scope": "all",
+    "question": null,
+    "max_iterations": 3
+  },
+  "hypotheses": [
+    {
+      "id": "H01",
+      "kind": "bid_rotation",
+      "entities": [
+        "C001",
+        "C002",
+        "C003"
+      ],
+      "statement": "Apex Build Ltd, Summit Construct LLC, Ridgeline Works Inc bid against each other on 6 tenders and took turns winning (100% won by the group).",
+      "score": 1.0,
+      "evidence_ids": [
+        "E001",
+        "E013",
+        "E014"
+      ],
+      "status": "supported",
+      "confidence": 0.9,
+      "open_questions": [],
+      "checks": {
+        "market_depth": {
+          "categories": [
+            "road_resurfacing"
+          ],
+          "distinct_bidders": 6,
+          "group_size": 3
+        },
+        "sample_size": {
+          "tenders": 6
+        }
+      },
+      "skeptic_notes": [
+        "6 companies compete in this market, yet this group of 3 dominates — no innocent explanation found."
+      ],
+      "data": {
+        "tenders": [
+          "T01",
+          "T02",
+          "T03",
+          "T04",
+          "T05",
+          "T06"
+        ]
+      }
+    },
+    {
+      "id": "H02",
+      "kind": "bid_rotation",
+      "entities": [
+        "C009",
+        "C010",
+        "C011"
+      ],
+      "statement": "Clearwater Engineering Ltd, Granite Line Ltd, Evergreen Utilities Inc bid against each other on 3 tenders and took turns winning (100% won by the group).",
+      "score": 1.0,
+      "evidence_ids": [
+        "E002",
+        "E015",
+        "E016"
+      ],
+      "status": "weakened",
+      "confidence": 0.4,
+      "open_questions": [],
+      "checks": {
+        "market_depth": {
+          "categories": [
+            "road_resurfacing"
+          ],
+          "distinct_bidders": 6,
+          "group_size": 3
+        },
+        "sample_size": {
+          "tenders": 3
+        }
+      },
+      "skeptic_notes": [
+        "Only 3 tenders — rotation could be coincidence."
+      ],
+      "data": {
+        "tenders": [
+          "T07",
+          "T08",
+          "T09"
+        ]
+      }
+    },
+    {
+      "id": "H03",
+      "kind": "bid_rotation",
+      "entities": [
+        "C004",
+        "C005"
+      ],
+      "statement": "Northwind Paving Co, Bluestone Civil Ltd bid against each other on 3 tenders and took turns winning (100% won by the group).",
+      "score": 0.83,
+      "evidence_ids": [
+        "E003",
+        "E017",
+        "E018"
+      ],
+      "status": "weakened",
+      "confidence": 0.33,
+      "open_questions": [],
+      "checks": {
+        "market_depth": {
+          "categories": [
+            "bridge_inspection"
+          ],
+          "distinct_bidders": 3,
+          "group_size": 2
+        },
+        "sample_size": {
+          "tenders": 3
+        }
+      },
+      "skeptic_notes": [
+        "Only 3 tenders — rotation could be coincidence."
+      ],
+      "data": {
+        "tenders": [
+          "T10",
+          "T11",
+          "T12"
+        ]
+      }
+    },
+    {
+      "id": "H04",
+      "kind": "cover_bidding",
+      "entities": [
+        "C001",
+        "C002",
+        "C003"
+      ],
+      "statement": "Losing bids from this group are consistently just 2.8% above the winner (max 3.8%) — a classic cover-bid pattern.",
+      "score": 0.72,
+      "evidence_ids": [
+        "E004",
+        "E019"
+      ],
+      "status": "supported",
+      "confidence": 0.65,
+      "open_questions": [],
+      "checks": {
+        "market_depth": {
+          "categories": [
+            "road_resurfacing"
+          ],
+          "distinct_bidders": 6,
+          "group_size": 3
+        }
+      },
+      "skeptic_notes": [
+        "6 companies compete in this market, yet this group of 3 dominates — no innocent explanation found."
+      ],
+      "data": {
+        "tenders": [
+          "T01",
+          "T02",
+          "T03",
+          "T04",
+          "T05",
+          "T06"
+        ],
+        "median_gap": 0.02799719887955182
+      }
+    },
+    {
+      "id": "H05",
+      "kind": "cover_bidding",
+      "entities": [
+        "C004",
+        "C005"
+      ],
+      "statement": "Losing bids from this group are consistently just 3.0% above the winner (max 3.0%) — a classic cover-bid pattern.",
+      "score": 0.7,
+      "evidence_ids": [
+        "E005",
+        "E020"
+      ],
+      "status": "weakened",
+      "confidence": 0.28,
+      "open_questions": [],
+      "checks": {
+        "market_depth": {
+          "categories": [
+            "bridge_inspection"
+          ],
+          "distinct_bidders": 3,
+          "group_size": 2
+        }
+      },
+      "skeptic_notes": [
+        "Thin market: only 3 companies bid in this category, so the same firms winning in turn may be natural."
+      ],
+      "data": {
+        "tenders": [
+          "T10",
+          "T11",
+          "T12"
+        ],
+        "median_gap": 0.029508196721311476
+      }
+    },
+    {
+      "id": "H06",
+      "kind": "shared_officer",
+      "entities": [
+        "C001",
+        "C003"
+      ],
+      "statement": "Apex Build Ltd and Ridgeline Works Inc competed on 6 tender(s) but share an officer: James Morrow / James A. Morrow.",
+      "score": 1.0,
+      "evidence_ids": [
+        "E006",
+        "E021"
+      ],
+      "status": "supported",
+      "confidence": 0.85,
+      "open_questions": [],
+      "checks": {
+        "officer_role": {
+          "roles": [
+            "Director",
+            "Director"
+          ],
+          "nominee": false
+        }
+      },
+      "skeptic_notes": [
+        "Same real person controls two 'competing' bidders."
+      ],
+      "data": {
+        "officer_ids": [
+          "O01",
+          "O02"
+        ],
+        "co_bid_tenders": [
+          "T01",
+          "T02",
+          "T03",
+          "T04",
+          "T05",
+          "T06"
+        ]
+      }
+    },
+    {
+      "id": "H07",
+      "kind": "shared_officer",
+      "entities": [
+        "C002",
+        "C003"
+      ],
+      "statement": "Summit Construct LLC and Ridgeline Works Inc competed on 6 tender(s) but share an officer: Linda Chu / Linda Chu.",
+      "score": 1.0,
+      "evidence_ids": [
+        "E007",
+        "E022"
+      ],
+      "status": "supported",
+      "confidence": 0.85,
+      "open_questions": [],
+      "checks": {
+        "officer_role": {
+          "roles": [
+            "Director",
+            "Company Secretary"
+          ],
+          "nominee": false
+        }
+      },
+      "skeptic_notes": [
+        "Same real person controls two 'competing' bidders."
+      ],
+      "data": {
+        "officer_ids": [
+          "O03",
+          "O04"
+        ],
+        "co_bid_tenders": [
+          "T01",
+          "T02",
+          "T03",
+          "T04",
+          "T05",
+          "T06"
+        ]
+      }
+    },
+    {
+      "id": "H08",
+      "kind": "shared_officer",
+      "entities": [
+        "C005",
+        "C006"
+      ],
+      "statement": "Bluestone Civil Ltd and Keystone Roads LLC competed on 1 tender(s) but share an officer: Corporate Nominees Ltd / Corporate Nominees Ltd.",
+      "score": 1.0,
+      "evidence_ids": [
+        "E008",
+        "E023"
+      ],
+      "status": "weakened",
+      "confidence": 0.2,
+      "open_questions": [],
+      "checks": {
+        "officer_role": {
+          "roles": [
+            "Nominee Director",
+            "Nominee Director"
+          ],
+          "nominee": true
+        }
+      },
+      "skeptic_notes": [
+        "Shared officer is a nominee-director service that serves many unrelated firms — weak link on its own."
+      ],
+      "data": {
+        "officer_ids": [
+          "O06",
+          "O07"
+        ],
+        "co_bid_tenders": [
+          "T12"
+        ]
+      }
+    },
+    {
+      "id": "H09",
+      "kind": "shared_address",
+      "entities": [
+        "C002",
+        "C003"
+      ],
+      "statement": "Summit Construct LLC, Ridgeline Works Inc bid against each other but are registered at the same address.",
+      "score": 0.6,
+      "evidence_ids": [
+        "E009",
+        "E024"
+      ],
+      "status": "supported",
+      "confidence": 0.7,
+      "open_questions": [],
+      "checks": {
+        "address_density": {
+          "companies_at_address": 2
+        }
+      },
+      "skeptic_notes": [
+        "Only 2 companies at this address and they compete — strongly suggests common control."
+      ],
+      "data": {
+        "address": "88 oak ave ste 4"
+      }
+    },
+    {
+      "id": "H10",
+      "kind": "shared_address",
+      "entities": [
+        "C004",
+        "C005",
+        "C006"
+      ],
+      "statement": "Northwind Paving Co, Bluestone Civil Ltd, Keystone Roads LLC bid against each other but are registered at the same address.",
+      "score": 0.6,
+      "evidence_ids": [
+        "E010",
+        "E025"
+      ],
+      "status": "weakened",
+      "confidence": 0.15,
+      "open_questions": [],
+      "checks": {
+        "address_density": {
+          "companies_at_address": 4
+        }
+      },
+      "skeptic_notes": [
+        "4 companies use this address — likely a registered-agent or virtual office, not a real link."
+      ],
+      "data": {
+        "address": "100 registered agent way"
+      }
+    },
+    {
+      "id": "H11",
+      "kind": "sanctions_match",
+      "entities": [
+        "C008",
+        "SANCTION:Viktor Petrov"
+      ],
+      "statement": "Officer Victor Petrov of Orion Supply Co closely matches sanctioned person Viktor Petrov (SAMPLE-SANCTIONS-LIST (synthetic)).",
+      "score": 0.92,
+      "evidence_ids": [
+        "E011",
+        "E026",
+        "E028"
+      ],
+      "status": "supported",
+      "confidence": 0.92,
+      "open_questions": [],
+      "checks": {
+        "identity_verification": {
+          "officer_nationality": "CY",
+          "sanction_country": "CY",
+          "consistent": true
+        },
+        "corroboration": {
+          "corroborating": [
+            "H12"
+          ]
+        }
+      },
+      "skeptic_notes": [
+        "Identity is consistent. Before escalating, check whether this company shows other red flags.",
+        "Identity consistent and corroborated by H12."
+      ],
+      "data": {
+        "officer_id": "O08",
+        "sanction_name": "Viktor Petrov",
+        "match": 0.9230769230769231
+      }
+    },
+    {
+      "id": "H12",
+      "kind": "single_bidder",
+      "entities": [
+        "C008"
+      ],
+      "statement": "Orion Supply Co won 3 tenders where it was the only bidder.",
+      "score": 0.75,
+      "evidence_ids": [
+        "E012",
+        "E027"
+      ],
+      "status": "supported",
+      "confidence": 0.7,
+      "open_questions": [],
+      "checks": {
+        "corroboration": {
+          "corroborating": [
+            "H11"
+          ]
+        }
+      },
+      "skeptic_notes": [
+        "Sole-bidder wins corroborated by H11."
+      ],
+      "data": {
+        "tenders": [
+          "T13",
+          "T14",
+          "T15"
+        ]
+      }
+    }
+  ],
+  "evidence": {
+    "E001": {
+      "id": "E001",
+      "source": "bids",
+      "claim": "Win counts within the group: Summit Construct LLC=2, Ridgeline Works Inc=2, Apex Build Ltd=2",
+      "data": {
+        "members": [
+          "C001",
+          "C002",
+          "C003"
+        ],
+        "tenders": [
+          "T01",
+          "T02",
+          "T03",
+          "T04",
+          "T05",
+          "T06"
+        ],
+        "wins": {
+          "C002": 2,
+          "C003": 2,
+          "C001": 2
+        },
+        "win_share": 1.0
+      }
+    },
+    "E002": {
+      "id": "E002",
+      "source": "bids",
+      "claim": "Win counts within the group: Clearwater Engineering Ltd=1, Granite Line Ltd=1, Evergreen Utilities Inc=1",
+      "data": {
+        "members": [
+          "C009",
+          "C010",
+          "C011"
+        ],
+        "tenders": [
+          "T07",
+          "T08",
+          "T09"
+        ],
+        "wins": {
+          "C009": 1,
+          "C010": 1,
+          "C011": 1
+        },
+        "win_share": 1.0
+      }
+    },
+    "E003": {
+      "id": "E003",
+      "source": "bids",
+      "claim": "Win counts within the group: Bluestone Civil Ltd=1, Northwind Paving Co=2",
+      "data": {
+        "members": [
+          "C004",
+          "C005"
+        ],
+        "tenders": [
+          "T10",
+          "T11",
+          "T12"
+        ],
+        "wins": {
+          "C005": 1,
+          "C004": 2
+        },
+        "win_share": 1.0
+      }
+    },
+    "E004": {
+      "id": "E004",
+      "source": "bids",
+      "claim": "12 losing bids, median gap 2.8%, max gap 3.8%",
+      "data": {
+        "gaps": [
+          0.025,
+          0.038,
+          0.0245,
+          0.0327,
+          0.0238,
+          0.0295,
+          0.0241,
+          0.0362,
+          0.0257,
+          0.0337,
+          0.0265,
+          0.0314
+        ],
+        "tenders": [
+          "T01",
+          "T02",
+          "T03",
+          "T04",
+          "T05",
+          "T06"
+        ]
+      }
+    },
+    "E005": {
+      "id": "E005",
+      "source": "bids",
+      "claim": "3 losing bids, median gap 3.0%, max gap 3.0%",
+      "data": {
+        "gaps": [
+          0.03,
+          0.0258,
+          0.0295
+        ],
+        "tenders": [
+          "T10",
+          "T11",
+          "T12"
+        ]
+      }
+    },
+    "E006": {
+      "id": "E006",
+      "source": "officer_registry",
+      "claim": "James Morrow (Director) at Apex Build Ltd; James A. Morrow (Director) at Ridgeline Works Inc — name match 1.00",
+      "data": {
+        "officers": [
+          {
+            "officer_id": "O01",
+            "name": "James Morrow",
+            "company_id": "C001",
+            "role": "Director",
+            "nationality": "US"
+          },
+          {
+            "officer_id": "O02",
+            "name": "James A. Morrow",
+            "company_id": "C003",
+            "role": "Director",
+            "nationality": "US"
+          }
+        ],
+        "co_bid_tenders": [
+          "T01",
+          "T02",
+          "T03",
+          "T04",
+          "T05",
+          "T06"
+        ]
+      }
+    },
+    "E007": {
+      "id": "E007",
+      "source": "officer_registry",
+      "claim": "Linda Chu (Director) at Summit Construct LLC; Linda Chu (Company Secretary) at Ridgeline Works Inc — name match 1.00",
+      "data": {
+        "officers": [
+          {
+            "officer_id": "O03",
+            "name": "Linda Chu",
+            "company_id": "C002",
+            "role": "Director",
+            "nationality": "US"
+          },
+          {
+            "officer_id": "O04",
+            "name": "Linda Chu",
+            "company_id": "C003",
+            "role": "Company Secretary",
+            "nationality": "US"
+          }
+        ],
+        "co_bid_tenders": [
+          "T01",
+          "T02",
+          "T03",
+          "T04",
+          "T05",
+          "T06"
+        ]
+      }
+    },
+    "E008": {
+      "id": "E008",
+      "source": "officer_registry",
+      "claim": "Corporate Nominees Ltd (Nominee Director) at Bluestone Civil Ltd; Corporate Nominees Ltd (Nominee Director) at Keystone Roads LLC — name match 1.00",
+      "data": {
+        "officers": [
+          {
+            "officer_id": "O06",
+            "name": "Corporate Nominees Ltd",
+            "company_id": "C005",
+            "role": "Nominee Director",
+            "nationality": "US"
+          },
+          {
+            "officer_id": "O07",
+            "name": "Corporate Nominees Ltd",
+            "company_id": "C006",
+            "role": "Nominee Director",
+            "nationality": "US"
+          }
+        ],
+        "co_bid_tenders": [
+          "T12"
+        ]
+      }
+    },
+    "E009": {
+      "id": "E009",
+      "source": "companies_registry",
+      "claim": "Normalized address '88 oak ave ste 4' shared by 2 competing bidders",
+      "data": {
+        "address": "88 oak ave ste 4",
+        "companies": [
+          "C002",
+          "C003"
+        ]
+      }
+    },
+    "E010": {
+      "id": "E010",
+      "source": "companies_registry",
+      "claim": "Normalized address '100 registered agent way' shared by 3 competing bidders",
+      "data": {
+        "address": "100 registered agent way",
+        "companies": [
+          "C004",
+          "C005",
+          "C006"
+        ]
+      }
+    },
+    "E011": {
+      "id": "E011",
+      "source": "sanctions",
+      "claim": "'Victor Petrov' vs 'Viktor Petrov' name similarity 0.92",
+      "data": {
+        "officer": {
+          "officer_id": "O08",
+          "name": "Victor Petrov",
+          "company_id": "C008",
+          "role": "Director",
+          "nationality": "CY"
+        },
+        "sanction": {
+          "name": "Viktor Petrov",
+          "list": "SAMPLE-SANCTIONS-LIST (synthetic)",
+          "country": "CY",
+          "reason": "Synthetic demo entry"
+        },
+        "match": 0.9230769230769231
+      }
+    },
+    "E012": {
+      "id": "E012",
+      "source": "bids",
+      "claim": "Sole bidder on T13, T14, T15",
+      "data": {
+        "tenders": [
+          "T13",
+          "T14",
+          "T15"
+        ]
+      }
+    },
+    "E013": {
+      "id": "E013",
+      "source": "bids",
+      "claim": "6 distinct companies bid in road_resurfacing (group size 3)",
+      "data": {
+        "check": "market_depth",
+        "categories": [
+          "road_resurfacing"
+        ],
+        "distinct_bidders": 6,
+        "group_size": 3
+      }
+    },
+    "E014": {
+      "id": "E014",
+      "source": "bids",
+      "claim": "Pattern observed across 6 tenders",
+      "data": {
+        "check": "sample_size",
+        "tenders": 6
+      }
+    },
+    "E015": {
+      "id": "E015",
+      "source": "bids",
+      "claim": "6 distinct companies bid in road_resurfacing (group size 3)",
+      "data": {
+        "check": "market_depth",
+        "categories": [
+          "road_resurfacing"
+        ],
+        "distinct_bidders": 6,
+        "group_size": 3
+      }
+    },
+    "E016": {
+      "id": "E016",
+      "source": "bids",
+      "claim": "Pattern observed across 3 tenders",
+      "data": {
+        "check": "sample_size",
+        "tenders": 3
+      }
+    },
+    "E017": {
+      "id": "E017",
+      "source": "bids",
+      "claim": "3 distinct companies bid in bridge_inspection (group size 2)",
+      "data": {
+        "check": "market_depth",
+        "categories": [
+          "bridge_inspection"
+        ],
+        "distinct_bidders": 3,
+        "group_size": 2
+      }
+    },
+    "E018": {
+      "id": "E018",
+      "source": "bids",
+      "claim": "Pattern observed across 3 tenders",
+      "data": {
+        "check": "sample_size",
+        "tenders": 3
+      }
+    },
+    "E019": {
+      "id": "E019",
+      "source": "bids",
+      "claim": "6 distinct companies bid in road_resurfacing (group size 3)",
+      "data": {
+        "check": "market_depth",
+        "categories": [
+          "road_resurfacing"
+        ],
+        "distinct_bidders": 6,
+        "group_size": 3
+      }
+    },
+    "E020": {
+      "id": "E020",
+      "source": "bids",
+      "claim": "3 distinct companies bid in bridge_inspection (group size 2)",
+      "data": {
+        "check": "market_depth",
+        "categories": [
+          "bridge_inspection"
+        ],
+        "distinct_bidders": 3,
+        "group_size": 2
+      }
+    },
+    "E021": {
+      "id": "E021",
+      "source": "officer_registry",
+      "claim": "Officer roles: Director, Director",
+      "data": {
+        "check": "officer_role",
+        "roles": [
+          "Director",
+          "Director"
+        ],
+        "nominee": false
+      }
+    },
+    "E022": {
+      "id": "E022",
+      "source": "officer_registry",
+      "claim": "Officer roles: Director, Company Secretary",
+      "data": {
+        "check": "officer_role",
+        "roles": [
+          "Director",
+          "Company Secretary"
+        ],
+        "nominee": false
+      }
+    },
+    "E023": {
+      "id": "E023",
+      "source": "officer_registry",
+      "claim": "Officer roles: Nominee Director, Nominee Director (nominee service)",
+      "data": {
+        "check": "officer_role",
+        "roles": [
+          "Nominee Director",
+          "Nominee Director"
+        ],
+        "nominee": true
+      }
+    },
+    "E024": {
+      "id": "E024",
+      "source": "companies_registry",
+      "claim": "2 registered companies use the address '88 oak ave ste 4'",
+      "data": {
+        "check": "address_density",
+        "companies_at_address": 2
+      }
+    },
+    "E025": {
+      "id": "E025",
+      "source": "companies_registry",
+      "claim": "4 registered companies use the address '100 registered agent way'",
+      "data": {
+        "check": "address_density",
+        "companies_at_address": 4
+      }
+    },
+    "E026": {
+      "id": "E026",
+      "source": "sanctions",
+      "claim": "Officer nationality CY vs sanctions entry country CY: consistent",
+      "data": {
+        "check": "identity_verification",
+        "officer_nationality": "CY",
+        "sanction_country": "CY",
+        "consistent": true
+      }
+    },
+    "E027": {
+      "id": "E027",
+      "source": "cross-hypothesis",
+      "claim": "1 other open red flag(s) involve the same companies: H11",
+      "data": {
+        "check": "corroboration",
+        "corroborating": [
+          "H11"
+        ]
+      }
+    },
+    "E028": {
+      "id": "E028",
+      "source": "cross-hypothesis",
+      "claim": "1 other open red flag(s) involve the same companies: H12",
+      "data": {
+        "check": "corroboration",
+        "corroborating": [
+          "H12"
+        ]
+      }
+    }
+  },
+  "trace": [
+    {
+      "step": 1,
+      "iteration": 0,
+      "agent": "Planner",
+      "action": "plan",
+      "detail": "No specific question — running the full detector suite.",
+      "data": {
+        "scope": "all",
+        "detectors": [
+          "bid_rotation",
+          "cover_bidding",
+          "shared_officer",
+          "shared_address",
+          "sanctions_match",
+          "single_bidder"
+        ]
+      }
+    },
+    {
+      "step": 2,
+      "iteration": 0,
+      "agent": "Hypothesis",
+      "action": "detect",
+      "detail": "bid_rotation: 3 signal(s)",
+      "data": {}
+    },
+    {
+      "step": 3,
+      "iteration": 0,
+      "agent": "Hypothesis",
+      "action": "detect",
+      "detail": "cover_bidding: 2 signal(s)",
+      "data": {}
+    },
+    {
+      "step": 4,
+      "iteration": 0,
+      "agent": "Hypothesis",
+      "action": "detect",
+      "detail": "shared_officer: 3 signal(s)",
+      "data": {}
+    },
+    {
+      "step": 5,
+      "iteration": 0,
+      "agent": "Hypothesis",
+      "action": "detect",
+      "detail": "shared_address: 2 signal(s)",
+      "data": {}
+    },
+    {
+      "step": 6,
+      "iteration": 0,
+      "agent": "Hypothesis",
+      "action": "detect",
+      "detail": "sanctions_match: 1 signal(s)",
+      "data": {}
+    },
+    {
+      "step": 7,
+      "iteration": 0,
+      "agent": "Hypothesis",
+      "action": "detect",
+      "detail": "single_bidder: 1 signal(s)",
+      "data": {}
+    },
+    {
+      "step": 8,
+      "iteration": 0,
+      "agent": "Hypothesis",
+      "action": "propose",
+      "detail": "Proposed 12 hypotheses for scrutiny",
+      "data": {
+        "ids": [
+          "H01",
+          "H02",
+          "H03",
+          "H04",
+          "H05",
+          "H06",
+          "H07",
+          "H08",
+          "H09",
+          "H10",
+          "H11",
+          "H12"
+        ]
+      }
+    },
+    {
+      "step": 9,
+      "iteration": 1,
+      "agent": "Skeptic",
+      "action": "challenge",
+      "detail": "H01 (bid_rotation): need market_depth, sample_size before I accept this",
+      "data": {
+        "hypothesis": "H01",
+        "questions": [
+          "market_depth",
+          "sample_size"
+        ]
+      }
+    },
+    {
+      "step": 10,
+      "iteration": 1,
+      "agent": "Skeptic",
+      "action": "challenge",
+      "detail": "H02 (bid_rotation): need market_depth, sample_size before I accept this",
+      "data": {
+        "hypothesis": "H02",
+        "questions": [
+          "market_depth",
+          "sample_size"
+        ]
+      }
+    },
+    {
+      "step": 11,
+      "iteration": 1,
+      "agent": "Skeptic",
+      "action": "challenge",
+      "detail": "H03 (bid_rotation): need market_depth, sample_size before I accept this",
+      "data": {
+        "hypothesis": "H03",
+        "questions": [
+          "market_depth",
+          "sample_size"
+        ]
+      }
+    },
+    {
+      "step": 12,
+      "iteration": 1,
+      "agent": "Skeptic",
+      "action": "challenge",
+      "detail": "H04 (cover_bidding): need market_depth before I accept this",
+      "data": {
+        "hypothesis": "H04",
+        "questions": [
+          "market_depth"
+        ]
+      }
+    },
+    {
+      "step": 13,
+      "iteration": 1,
+      "agent": "Skeptic",
+      "action": "challenge",
+      "detail": "H05 (cover_bidding): need market_depth before I accept this",
+      "data": {
+        "hypothesis": "H05",
+        "questions": [
+          "market_depth"
+        ]
+      }
+    },
+    {
+      "step": 14,
+      "iteration": 1,
+      "agent": "Skeptic",
+      "action": "challenge",
+      "detail": "H06 (shared_officer): need officer_role before I accept this",
+      "data": {
+        "hypothesis": "H06",
+        "questions": [
+          "officer_role"
+        ]
+      }
+    },
+    {
+      "step": 15,
+      "iteration": 1,
+      "agent": "Skeptic",
+      "action": "challenge",
+      "detail": "H07 (shared_officer): need officer_role before I accept this",
+      "data": {
+        "hypothesis": "H07",
+        "questions": [
+          "officer_role"
+        ]
+      }
+    },
+    {
+      "step": 16,
+      "iteration": 1,
+      "agent": "Skeptic",
+      "action": "challenge",
+      "detail": "H08 (shared_officer): need officer_role before I accept this",
+      "data": {
+        "hypothesis": "H08",
+        "questions": [
+          "officer_role"
+        ]
+      }
+    },
+    {
+      "step": 17,
+      "iteration": 1,
+      "agent": "Skeptic",
+      "action": "challenge",
+      "detail": "H09 (shared_address): need address_density before I accept this",
+      "data": {
+        "hypothesis": "H09",
+        "questions": [
+          "address_density"
+        ]
+      }
+    },
+    {
+      "step": 18,
+      "iteration": 1,
+      "agent": "Skeptic",
+      "action": "challenge",
+      "detail": "H10 (shared_address): need address_density before I accept this",
+      "data": {
+        "hypothesis": "H10",
+        "questions": [
+          "address_density"
+        ]
+      }
+    },
+    {
+      "step": 19,
+      "iteration": 1,
+      "agent": "Skeptic",
+      "action": "challenge",
+      "detail": "H11 (sanctions_match): need identity_verification before I accept this",
+      "data": {
+        "hypothesis": "H11",
+        "questions": [
+          "identity_verification"
+        ]
+      }
+    },
+    {
+      "step": 20,
+      "iteration": 1,
+      "agent": "Skeptic",
+      "action": "challenge",
+      "detail": "H12 (single_bidder): need corroboration before I accept this",
+      "data": {
+        "hypothesis": "H12",
+        "questions": [
+          "corroboration"
+        ]
+      }
+    },
+    {
+      "step": 21,
+      "iteration": 1,
+      "agent": "Investigator",
+      "action": "market_depth",
+      "detail": "H01: 6 distinct companies bid in road_resurfacing (group size 3)",
+      "data": {
+        "hypothesis": "H01",
+        "evidence": "E013"
+      }
+    },
+    {
+      "step": 22,
+      "iteration": 1,
+      "agent": "Investigator",
+      "action": "sample_size",
+      "detail": "H01: Pattern observed across 6 tenders",
+      "data": {
+        "hypothesis": "H01",
+        "evidence": "E014"
+      }
+    },
+    {
+      "step": 23,
+      "iteration": 1,
+      "agent": "Investigator",
+      "action": "market_depth",
+      "detail": "H02: 6 distinct companies bid in road_resurfacing (group size 3)",
+      "data": {
+        "hypothesis": "H02",
+        "evidence": "E015"
+      }
+    },
+    {
+      "step": 24,
+      "iteration": 1,
+      "agent": "Investigator",
+      "action": "sample_size",
+      "detail": "H02: Pattern observed across 3 tenders",
+      "data": {
+        "hypothesis": "H02",
+        "evidence": "E016"
+      }
+    },
+    {
+      "step": 25,
+      "iteration": 1,
+      "agent": "Investigator",
+      "action": "market_depth",
+      "detail": "H03: 3 distinct companies bid in bridge_inspection (group size 2)",
+      "data": {
+        "hypothesis": "H03",
+        "evidence": "E017"
+      }
+    },
+    {
+      "step": 26,
+      "iteration": 1,
+      "agent": "Investigator",
+      "action": "sample_size",
+      "detail": "H03: Pattern observed across 3 tenders",
+      "data": {
+        "hypothesis": "H03",
+        "evidence": "E018"
+      }
+    },
+    {
+      "step": 27,
+      "iteration": 1,
+      "agent": "Investigator",
+      "action": "market_depth",
+      "detail": "H04: 6 distinct companies bid in road_resurfacing (group size 3)",
+      "data": {
+        "hypothesis": "H04",
+        "evidence": "E019"
+      }
+    },
+    {
+      "step": 28,
+      "iteration": 1,
+      "agent": "Investigator",
+      "action": "market_depth",
+      "detail": "H05: 3 distinct companies bid in bridge_inspection (group size 2)",
+      "data": {
+        "hypothesis": "H05",
+        "evidence": "E020"
+      }
+    },
+    {
+      "step": 29,
+      "iteration": 1,
+      "agent": "Investigator",
+      "action": "officer_role",
+      "detail": "H06: Officer roles: Director, Director",
+      "data": {
+        "hypothesis": "H06",
+        "evidence": "E021"
+      }
+    },
+    {
+      "step": 30,
+      "iteration": 1,
+      "agent": "Investigator",
+      "action": "officer_role",
+      "detail": "H07: Officer roles: Director, Company Secretary",
+      "data": {
+        "hypothesis": "H07",
+        "evidence": "E022"
+      }
+    },
+    {
+      "step": 31,
+      "iteration": 1,
+      "agent": "Investigator",
+      "action": "officer_role",
+      "detail": "H08: Officer roles: Nominee Director, Nominee Director (nominee service)",
+      "data": {
+        "hypothesis": "H08",
+        "evidence": "E023"
+      }
+    },
+    {
+      "step": 32,
+      "iteration": 1,
+      "agent": "Investigator",
+      "action": "address_density",
+      "detail": "H09: 2 registered companies use the address '88 oak ave ste 4'",
+      "data": {
+        "hypothesis": "H09",
+        "evidence": "E024"
+      }
+    },
+    {
+      "step": 33,
+      "iteration": 1,
+      "agent": "Investigator",
+      "action": "address_density",
+      "detail": "H10: 4 registered companies use the address '100 registered agent way'",
+      "data": {
+        "hypothesis": "H10",
+        "evidence": "E025"
+      }
+    },
+    {
+      "step": 34,
+      "iteration": 1,
+      "agent": "Investigator",
+      "action": "identity_verification",
+      "detail": "H11: Officer nationality CY vs sanctions entry country CY: consistent",
+      "data": {
+        "hypothesis": "H11",
+        "evidence": "E026"
+      }
+    },
+    {
+      "step": 35,
+      "iteration": 1,
+      "agent": "Investigator",
+      "action": "corroboration",
+      "detail": "H12: 1 other open red flag(s) involve the same companies: H11",
+      "data": {
+        "hypothesis": "H12",
+        "evidence": "E027"
+      }
+    },
+    {
+      "step": 36,
+      "iteration": 2,
+      "agent": "Skeptic",
+      "action": "supported",
+      "detail": "H01: 6 companies compete in this market, yet this group of 3 dominates — no innocent explanation found.",
+      "data": {
+        "hypothesis": "H01",
+        "confidence": 0.9
+      }
+    },
+    {
+      "step": 37,
+      "iteration": 2,
+      "agent": "Skeptic",
+      "action": "weakened",
+      "detail": "H02: Only 3 tenders — rotation could be coincidence.",
+      "data": {
+        "hypothesis": "H02",
+        "confidence": 0.4
+      }
+    },
+    {
+      "step": 38,
+      "iteration": 2,
+      "agent": "Skeptic",
+      "action": "weakened",
+      "detail": "H03: Only 3 tenders — rotation could be coincidence.",
+      "data": {
+        "hypothesis": "H03",
+        "confidence": 0.33
+      }
+    },
+    {
+      "step": 39,
+      "iteration": 2,
+      "agent": "Skeptic",
+      "action": "supported",
+      "detail": "H04: 6 companies compete in this market, yet this group of 3 dominates — no innocent explanation found.",
+      "data": {
+        "hypothesis": "H04",
+        "confidence": 0.65
+      }
+    },
+    {
+      "step": 40,
+      "iteration": 2,
+      "agent": "Skeptic",
+      "action": "weakened",
+      "detail": "H05: Thin market: only 3 companies bid in this category, so the same firms winning in turn may be natural.",
+      "data": {
+        "hypothesis": "H05",
+        "confidence": 0.28
+      }
+    },
+    {
+      "step": 41,
+      "iteration": 2,
+      "agent": "Skeptic",
+      "action": "supported",
+      "detail": "H06: Same real person controls two 'competing' bidders.",
+      "data": {
+        "hypothesis": "H06",
+        "confidence": 0.85
+      }
+    },
+    {
+      "step": 42,
+      "iteration": 2,
+      "agent": "Skeptic",
+      "action": "supported",
+      "detail": "H07: Same real person controls two 'competing' bidders.",
+      "data": {
+        "hypothesis": "H07",
+        "confidence": 0.85
+      }
+    },
+    {
+      "step": 43,
+      "iteration": 2,
+      "agent": "Skeptic",
+      "action": "weakened",
+      "detail": "H08: Shared officer is a nominee-director service that serves many unrelated firms — weak link on its own.",
+      "data": {
+        "hypothesis": "H08",
+        "confidence": 0.2
+      }
+    },
+    {
+      "step": 44,
+      "iteration": 2,
+      "agent": "Skeptic",
+      "action": "supported",
+      "detail": "H09: Only 2 companies at this address and they compete — strongly suggests common control.",
+      "data": {
+        "hypothesis": "H09",
+        "confidence": 0.7
+      }
+    },
+    {
+      "step": 45,
+      "iteration": 2,
+      "agent": "Skeptic",
+      "action": "weakened",
+      "detail": "H10: 4 companies use this address — likely a registered-agent or virtual office, not a real link.",
+      "data": {
+        "hypothesis": "H10",
+        "confidence": 0.15
+      }
+    },
+    {
+      "step": 46,
+      "iteration": 2,
+      "agent": "Skeptic",
+      "action": "follow_up",
+      "detail": "H11: Identity is consistent. Before escalating, check whether this company shows other red flags.",
+      "data": {
+        "hypothesis": "H11",
+        "questions": [
+          "corroboration"
+        ]
+      }
+    },
+    {
+      "step": 47,
+      "iteration": 2,
+      "agent": "Skeptic",
+      "action": "supported",
+      "detail": "H12: Sole-bidder wins corroborated by H11.",
+      "data": {
+        "hypothesis": "H12",
+        "confidence": 0.7
+      }
+    },
+    {
+      "step": 48,
+      "iteration": 2,
+      "agent": "Investigator",
+      "action": "corroboration",
+      "detail": "H11: 1 other open red flag(s) involve the same companies: H12",
+      "data": {
+        "hypothesis": "H11",
+        "evidence": "E028"
+      }
+    },
+    {
+      "step": 49,
+      "iteration": 3,
+      "agent": "Skeptic",
+      "action": "supported",
+      "detail": "H11: Identity consistent and corroborated by H12.",
+      "data": {
+        "hypothesis": "H11",
+        "confidence": 0.92
+      }
+    },
+    {
+      "step": 50,
+      "iteration": 3,
+      "agent": "Reporter",
+      "action": "report",
+      "detail": "2 risk network(s), 5 red flag(s) explained away",
+      "data": {}
+    }
+  ],
+  "report": {
+    "summary": {
+      "hypotheses": 12,
+      "supported": 7,
+      "dismissed": 5,
+      "networks": 2,
+      "iterations": 3,
+      "data_source": "local-csv"
+    },
+    "networks": [
+      {
+        "companies": [
+          "C001",
+          "C002",
+          "C003"
+        ],
+        "company_names": [
+          "Apex Build Ltd",
+          "Summit Construct LLC",
+          "Ridgeline Works Inc"
+        ],
+        "risk_score": 0.99,
+        "hypotheses": [
+          "H01",
+          "H04",
+          "H06",
+          "H07",
+          "H09"
+        ],
+        "narrative": "Risk network of 3 companies with 5 corroborating red flags:\n- H01 [bid_rotation, confidence 0.9]: Apex Build Ltd, Summit Construct LLC, Ridgeline Works Inc bid against each other on 6 tenders and took turns winning (100% won by the group). Evidence: [E001] Win counts within the group: Summit Construct LLC=2, Ridgeline Works Inc=2, Apex Build Ltd=2; [E013] 6 distinct companies bid in road_resurfacing (group size 3); [E014] Pattern observed across 6 tenders\n- H04 [cover_bidding, confidence 0.65]: Losing bids from this group are consistently just 2.8% above the winner (max 3.8%) — a classic cover-bid pattern. Evidence: [E004] 12 losing bids, median gap 2.8%, max gap 3.8%; [E019] 6 distinct companies bid in road_resurfacing (group size 3)\n- H06 [shared_officer, confidence 0.85]: Apex Build Ltd and Ridgeline Works Inc competed on 6 tender(s) but share an officer: James Morrow / James A. Morrow. Evidence: [E006] James Morrow (Director) at Apex Build Ltd; James A. Morrow (Director) at Ridgeline Works Inc — name match 1.00; [E021] Officer roles: Director, Director\n- H07 [shared_officer, confidence 0.85]: Summit Construct LLC and Ridgeline Works Inc competed on 6 tender(s) but share an officer: Linda Chu / Linda Chu. Evidence: [E007] Linda Chu (Director) at Summit Construct LLC; Linda Chu (Company Secretary) at Ridgeline Works Inc — name match 1.00; [E022] Officer roles: Director, Company Secretary\n- H09 [shared_address, confidence 0.7]: Summit Construct LLC, Ridgeline Works Inc bid against each other but are registered at the same address. Evidence: [E009] Normalized address '88 oak ave ste 4' shared by 2 competing bidders; [E024] 2 registered companies use the address '88 oak ave ste 4'\nNext step: request bid documents and ownership filings for these companies."
+      },
+      {
+        "companies": [
+          "C008"
+        ],
+        "company_names": [
+          "Orion Supply Co"
+        ],
+        "risk_score": 0.98,
+        "hypotheses": [
+          "H11",
+          "H12"
+        ],
+        "narrative": "Risk network of 1 companies with 2 corroborating red flags:\n- H11 [sanctions_match, confidence 0.92]: Officer Victor Petrov of Orion Supply Co closely matches sanctioned person Viktor Petrov (SAMPLE-SANCTIONS-LIST (synthetic)). Evidence: [E011] 'Victor Petrov' vs 'Viktor Petrov' name similarity 0.92; [E026] Officer nationality CY vs sanctions entry country CY: consistent; [E028] 1 other open red flag(s) involve the same companies: H12\n- H12 [single_bidder, confidence 0.7]: Orion Supply Co won 3 tenders where it was the only bidder. Evidence: [E012] Sole bidder on T13, T14, T15; [E027] 1 other open red flag(s) involve the same companies: H11\nNext step: request bid documents and ownership filings for these companies."
+      }
+    ],
+    "dismissed": [
+      {
+        "id": "H02",
+        "kind": "bid_rotation",
+        "statement": "Clearwater Engineering Ltd, Granite Line Ltd, Evergreen Utilities Inc bid against each other on 3 tenders and took turns winning (100% won by the group).",
+        "status": "weakened",
+        "why": "Only 3 tenders — rotation could be coincidence."
+      },
+      {
+        "id": "H03",
+        "kind": "bid_rotation",
+        "statement": "Northwind Paving Co, Bluestone Civil Ltd bid against each other on 3 tenders and took turns winning (100% won by the group).",
+        "status": "weakened",
+        "why": "Only 3 tenders — rotation could be coincidence."
+      },
+      {
+        "id": "H05",
+        "kind": "cover_bidding",
+        "statement": "Losing bids from this group are consistently just 3.0% above the winner (max 3.0%) — a classic cover-bid pattern.",
+        "status": "weakened",
+        "why": "Thin market: only 3 companies bid in this category, so the same firms winning in turn may be natural."
+      },
+      {
+        "id": "H08",
+        "kind": "shared_officer",
+        "statement": "Bluestone Civil Ltd and Keystone Roads LLC competed on 1 tender(s) but share an officer: Corporate Nominees Ltd / Corporate Nominees Ltd.",
+        "status": "weakened",
+        "why": "Shared officer is a nominee-director service that serves many unrelated firms — weak link on its own."
+      },
+      {
+        "id": "H10",
+        "kind": "shared_address",
+        "statement": "Northwind Paving Co, Bluestone Civil Ltd, Keystone Roads LLC bid against each other but are registered at the same address.",
+        "status": "weakened",
+        "why": "4 companies use this address — likely a registered-agent or virtual office, not a real link."
+      }
+    ],
+    "disclaimer": "Risk indicators for human review — not findings of wrongdoing."
+  },
+  "graph": {
+    "nodes": [
+      {
+        "id": "C001",
+        "label": "Apex Build Ltd",
+        "type": "company"
+      },
+      {
+        "id": "C002",
+        "label": "Summit Construct LLC",
+        "type": "company"
+      },
+      {
+        "id": "C003",
+        "label": "Ridgeline Works Inc",
+        "type": "company"
+      },
+      {
+        "id": "C009",
+        "label": "Clearwater Engineering Ltd",
+        "type": "company"
+      },
+      {
+        "id": "C010",
+        "label": "Granite Line Ltd",
+        "type": "company"
+      },
+      {
+        "id": "C011",
+        "label": "Evergreen Utilities Inc",
+        "type": "company"
+      },
+      {
+        "id": "C004",
+        "label": "Northwind Paving Co",
+        "type": "company"
+      },
+      {
+        "id": "C005",
+        "label": "Bluestone Civil Ltd",
+        "type": "company"
+      },
+      {
+        "id": "C006",
+        "label": "Keystone Roads LLC",
+        "type": "company"
+      },
+      {
+        "id": "C008",
+        "label": "Orion Supply Co",
+        "type": "company"
+      },
+      {
+        "id": "SANCTION:Viktor Petrov",
+        "label": "Viktor Petrov",
+        "type": "sanction"
+      }
+    ],
+    "links": [
+      {
+        "source": "C001",
+        "target": "C002",
+        "kind": "bid_rotation",
+        "status": "supported",
+        "hypothesis": "H01"
+      },
+      {
+        "source": "C001",
+        "target": "C003",
+        "kind": "bid_rotation",
+        "status": "supported",
+        "hypothesis": "H01"
+      },
+      {
+        "source": "C002",
+        "target": "C003",
+        "kind": "bid_rotation",
+        "status": "supported",
+        "hypothesis": "H01"
+      },
+      {
+        "source": "C009",
+        "target": "C010",
+        "kind": "bid_rotation",
+        "status": "weakened",
+        "hypothesis": "H02"
+      },
+      {
+        "source": "C009",
+        "target": "C011",
+        "kind": "bid_rotation",
+        "status": "weakened",
+        "hypothesis": "H02"
+      },
+      {
+        "source": "C010",
+        "target": "C011",
+        "kind": "bid_rotation",
+        "status": "weakened",
+        "hypothesis": "H02"
+      },
+      {
+        "source": "C004",
+        "target": "C005",
+        "kind": "bid_rotation",
+        "status": "weakened",
+        "hypothesis": "H03"
+      },
+      {
+        "source": "C001",
+        "target": "C002",
+        "kind": "cover_bidding",
+        "status": "supported",
+        "hypothesis": "H04"
+      },
+      {
+        "source": "C001",
+        "target": "C003",
+        "kind": "cover_bidding",
+        "status": "supported",
+        "hypothesis": "H04"
+      },
+      {
+        "source": "C002",
+        "target": "C003",
+        "kind": "cover_bidding",
+        "status": "supported",
+        "hypothesis": "H04"
+      },
+      {
+        "source": "C004",
+        "target": "C005",
+        "kind": "cover_bidding",
+        "status": "weakened",
+        "hypothesis": "H05"
+      },
+      {
+        "source": "C001",
+        "target": "C003",
+        "kind": "shared_officer",
+        "status": "supported",
+        "hypothesis": "H06"
+      },
+      {
+        "source": "C002",
+        "target": "C003",
+        "kind": "shared_officer",
+        "status": "supported",
+        "hypothesis": "H07"
+      },
+      {
+        "source": "C005",
+        "target": "C006",
+        "kind": "shared_officer",
+        "status": "weakened",
+        "hypothesis": "H08"
+      },
+      {
+        "source": "C002",
+        "target": "C003",
+        "kind": "shared_address",
+        "status": "supported",
+        "hypothesis": "H09"
+      },
+      {
+        "source": "C004",
+        "target": "C005",
+        "kind": "shared_address",
+        "status": "weakened",
+        "hypothesis": "H10"
+      },
+      {
+        "source": "C004",
+        "target": "C006",
+        "kind": "shared_address",
+        "status": "weakened",
+        "hypothesis": "H10"
+      },
+      {
+        "source": "C005",
+        "target": "C006",
+        "kind": "shared_address",
+        "status": "weakened",
+        "hypothesis": "H10"
+      },
+      {
+        "source": "C008",
+        "target": "SANCTION:Viktor Petrov",
+        "kind": "sanctions_match",
+        "status": "supported",
+        "hypothesis": "H11"
+      }
+    ]
+  }
+}

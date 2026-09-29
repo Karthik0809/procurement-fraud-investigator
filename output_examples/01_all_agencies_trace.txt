@@ -1,0 +1,50 @@
+[01] it0 Planner      plan                   No specific question — running the full detector suite.
+[02] it0 Hypothesis   detect                 bid_rotation: 3 signal(s)
+[03] it0 Hypothesis   detect                 cover_bidding: 2 signal(s)
+[04] it0 Hypothesis   detect                 shared_officer: 3 signal(s)
+[05] it0 Hypothesis   detect                 shared_address: 2 signal(s)
+[06] it0 Hypothesis   detect                 sanctions_match: 1 signal(s)
+[07] it0 Hypothesis   detect                 single_bidder: 1 signal(s)
+[08] it0 Hypothesis   propose                Proposed 12 hypotheses for scrutiny
+[09] it1 Skeptic      challenge              H01 (bid_rotation): need market_depth, sample_size before I accept this
+[10] it1 Skeptic      challenge              H02 (bid_rotation): need market_depth, sample_size before I accept this
+[11] it1 Skeptic      challenge              H03 (bid_rotation): need market_depth, sample_size before I accept this
+[12] it1 Skeptic      challenge              H04 (cover_bidding): need market_depth before I accept this
+[13] it1 Skeptic      challenge              H05 (cover_bidding): need market_depth before I accept this
+[14] it1 Skeptic      challenge              H06 (shared_officer): need officer_role before I accept this
+[15] it1 Skeptic      challenge              H07 (shared_officer): need officer_role before I accept this
+[16] it1 Skeptic      challenge              H08 (shared_officer): need officer_role before I accept this
+[17] it1 Skeptic      challenge              H09 (shared_address): need address_density before I accept this
+[18] it1 Skeptic      challenge              H10 (shared_address): need address_density before I accept this
+[19] it1 Skeptic      challenge              H11 (sanctions_match): need identity_verification before I accept this
+[20] it1 Skeptic      challenge              H12 (single_bidder): need corroboration before I accept this
+[21] it1 Investigator market_depth           H01: 6 distinct companies bid in road_resurfacing (group size 3)
+[22] it1 Investigator sample_size            H01: Pattern observed across 6 tenders
+[23] it1 Investigator market_depth           H02: 6 distinct companies bid in road_resurfacing (group size 3)
+[24] it1 Investigator sample_size            H02: Pattern observed across 3 tenders
+[25] it1 Investigator market_depth           H03: 3 distinct companies bid in bridge_inspection (group size 2)
+[26] it1 Investigator sample_size            H03: Pattern observed across 3 tenders
+[27] it1 Investigator market_depth           H04: 6 distinct companies bid in road_resurfacing (group size 3)
+[28] it1 Investigator market_depth           H05: 3 distinct companies bid in bridge_inspection (group size 2)
+[29] it1 Investigator officer_role           H06: Officer roles: Director, Director
+[30] it1 Investigator officer_role           H07: Officer roles: Director, Company Secretary
+[31] it1 Investigator officer_role           H08: Officer roles: Nominee Director, Nominee Director (nominee service)
+[32] it1 Investigator address_density        H09: 2 registered companies use the address '88 oak ave ste 4'
+[33] it1 Investigator address_density        H10: 4 registered companies use the address '100 registered agent way'
+[34] it1 Investigator identity_verification  H11: Officer nationality CY vs sanctions entry country CY: consistent
+[35] it1 Investigator corroboration          H12: 1 other open red flag(s) involve the same companies: H11
+[36] it2 Skeptic      supported              H01: 6 companies compete in this market, yet this group of 3 dominates — no innocent explanation found.
+[37] it2 Skeptic      weakened               H02: Only 3 tenders — rotation could be coincidence.
+[38] it2 Skeptic      weakened               H03: Only 3 tenders — rotation could be coincidence.
+[39] it2 Skeptic      supported              H04: 6 companies compete in this market, yet this group of 3 dominates — no innocent explanation found.
+[40] it2 Skeptic      weakened               H05: Thin market: only 3 companies bid in this category, so the same firms winning in turn may be natural.
+[41] it2 Skeptic      supported              H06: Same real person controls two 'competing' bidders.
+[42] it2 Skeptic      supported              H07: Same real person controls two 'competing' bidders.
+[43] it2 Skeptic      weakened               H08: Shared officer is a nominee-director service that serves many unrelated firms — weak link on its own.
+[44] it2 Skeptic      supported              H09: Only 2 companies at this address and they compete — strongly suggests common control.
+[45] it2 Skeptic      weakened               H10: 4 companies use this address — likely a registered-agent or virtual office, not a real link.
+[46] it2 Skeptic      follow_up              H11: Identity is consistent. Before escalating, check whether this company shows other red flags.
+[47] it2 Skeptic      supported              H12: Sole-bidder wins corroborated by H11.
+[48] it2 Investigator corroboration          H11: 1 other open red flag(s) involve the same companies: H12
+[49] it3 Skeptic      supported              H11: Identity consistent and corroborated by H12.
+[50] it3 Reporter     report                 2 risk network(s), 5 red flag(s) explained away

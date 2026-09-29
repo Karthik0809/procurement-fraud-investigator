@@ -16,6 +16,7 @@ class Settings(BaseSettings):
     nvidia_model: str = "meta/llama-3.3-70b-instruct"
 
     data_backend: str = "local"  # "local" | "zetaris"
+    sample_mode: bool = True  # true = bundled sample data only, no external calls (judging fallback)
     data_dir: str = "data/sample"
 
     zetaris_url: str = ""

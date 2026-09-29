@@ -18,7 +18,9 @@ def _get_client():
     if _client is None:
         from openai import OpenAI
 
-        _client = OpenAI(base_url=settings.nvidia_base_url, api_key=settings.nvidia_api_key)
+        # bounded: a slow or failing model must never hang a run
+        _client = OpenAI(base_url=settings.nvidia_base_url, api_key=settings.nvidia_api_key,
+                         timeout=30.0, max_retries=1)
     return _client
 
 

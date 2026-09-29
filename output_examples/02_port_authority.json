@@ -1,0 +1,384 @@
+{
+  "id": "bfd02644",
+  "request": {
+    "scope": "Port Authority",
+    "question": "Are any suppliers linked to sanctioned individuals?",
+    "max_iterations": 3
+  },
+  "hypotheses": [
+    {
+      "id": "H01",
+      "kind": "sanctions_match",
+      "entities": [
+        "C008",
+        "SANCTION:Viktor Petrov"
+      ],
+      "statement": "Officer Victor Petrov of Orion Supply Co closely matches sanctioned person Viktor Petrov (SAMPLE-SANCTIONS-LIST (synthetic)).",
+      "score": 0.92,
+      "evidence_ids": [
+        "E001",
+        "E003",
+        "E005"
+      ],
+      "status": "supported",
+      "confidence": 0.92,
+      "open_questions": [],
+      "checks": {
+        "identity_verification": {
+          "officer_nationality": "CY",
+          "sanction_country": "CY",
+          "consistent": true
+        },
+        "corroboration": {
+          "corroborating": [
+            "H02"
+          ]
+        }
+      },
+      "skeptic_notes": [
+        "Identity is consistent. Before escalating, check whether this company shows other red flags.",
+        "Identity consistent and corroborated by H02."
+      ],
+      "data": {
+        "officer_id": "O08",
+        "sanction_name": "Viktor Petrov",
+        "match": 0.9230769230769231
+      }
+    },
+    {
+      "id": "H02",
+      "kind": "single_bidder",
+      "entities": [
+        "C008"
+      ],
+      "statement": "Orion Supply Co won 3 tenders where it was the only bidder.",
+      "score": 0.75,
+      "evidence_ids": [
+        "E002",
+        "E004"
+      ],
+      "status": "supported",
+      "confidence": 0.7,
+      "open_questions": [],
+      "checks": {
+        "corroboration": {
+          "corroborating": [
+            "H01"
+          ]
+        }
+      },
+      "skeptic_notes": [
+        "Sole-bidder wins corroborated by H01."
+      ],
+      "data": {
+        "tenders": [
+          "T13",
+          "T14",
+          "T15"
+        ]
+      }
+    }
+  ],
+  "evidence": {
+    "E001": {
+      "id": "E001",
+      "source": "sanctions",
+      "claim": "'Victor Petrov' vs 'Viktor Petrov' name similarity 0.92",
+      "data": {
+        "officer": {
+          "officer_id": "O08",
+          "name": "Victor Petrov",
+          "company_id": "C008",
+          "role": "Director",
+          "nationality": "CY"
+        },
+        "sanction": {
+          "name": "Viktor Petrov",
+          "list": "SAMPLE-SANCTIONS-LIST (synthetic)",
+          "country": "CY",
+          "reason": "Synthetic demo entry"
+        },
+        "match": 0.9230769230769231
+      }
+    },
+    "E002": {
+      "id": "E002",
+      "source": "bids",
+      "claim": "Sole bidder on T13, T14, T15",
+      "data": {
+        "tenders": [
+          "T13",
+          "T14",
+          "T15"
+        ]
+      }
+    },
+    "E003": {
+      "id": "E003",
+      "source": "sanctions",
+      "claim": "Officer nationality CY vs sanctions entry country CY: consistent",
+      "data": {
+        "check": "identity_verification",
+        "officer_nationality": "CY",
+        "sanction_country": "CY",
+        "consistent": true
+      }
+    },
+    "E004": {
+      "id": "E004",
+      "source": "cross-hypothesis",
+      "claim": "1 other open red flag(s) involve the same companies: H01",
+      "data": {
+        "check": "corroboration",
+        "corroborating": [
+          "H01"
+        ]
+      }
+    },
+    "E005": {
+      "id": "E005",
+      "source": "cross-hypothesis",
+      "claim": "1 other open red flag(s) involve the same companies: H02",
+      "data": {
+        "check": "corroboration",
+        "corroborating": [
+          "H02"
+        ]
+      }
+    }
+  },
+  "trace": [
+    {
+      "step": 1,
+      "iteration": 0,
+      "agent": "Planner",
+      "action": "plan",
+      "detail": "No specific question — running the full detector suite.",
+      "data": {
+        "scope": "Port Authority",
+        "detectors": [
+          "bid_rotation",
+          "cover_bidding",
+          "shared_officer",
+          "shared_address",
+          "sanctions_match",
+          "single_bidder"
+        ]
+      }
+    },
+    {
+      "step": 2,
+      "iteration": 0,
+      "agent": "Hypothesis",
+      "action": "detect",
+      "detail": "bid_rotation: 0 signal(s)",
+      "data": {}
+    },
+    {
+      "step": 3,
+      "iteration": 0,
+      "agent": "Hypothesis",
+      "action": "detect",
+      "detail": "cover_bidding: 0 signal(s)",
+      "data": {}
+    },
+    {
+      "step": 4,
+      "iteration": 0,
+      "agent": "Hypothesis",
+      "action": "detect",
+      "detail": "shared_officer: 0 signal(s)",
+      "data": {}
+    },
+    {
+      "step": 5,
+      "iteration": 0,
+      "agent": "Hypothesis",
+      "action": "detect",
+      "detail": "shared_address: 0 signal(s)",
+      "data": {}
+    },
+    {
+      "step": 6,
+      "iteration": 0,
+      "agent": "Hypothesis",
+      "action": "detect",
+      "detail": "sanctions_match: 1 signal(s)",
+      "data": {}
+    },
+    {
+      "step": 7,
+      "iteration": 0,
+      "agent": "Hypothesis",
+      "action": "detect",
+      "detail": "single_bidder: 1 signal(s)",
+      "data": {}
+    },
+    {
+      "step": 8,
+      "iteration": 0,
+      "agent": "Hypothesis",
+      "action": "propose",
+      "detail": "Proposed 2 hypotheses for scrutiny",
+      "data": {
+        "ids": [
+          "H01",
+          "H02"
+        ]
+      }
+    },
+    {
+      "step": 9,
+      "iteration": 1,
+      "agent": "Skeptic",
+      "action": "challenge",
+      "detail": "H01 (sanctions_match): need identity_verification before I accept this",
+      "data": {
+        "hypothesis": "H01",
+        "questions": [
+          "identity_verification"
+        ]
+      }
+    },
+    {
+      "step": 10,
+      "iteration": 1,
+      "agent": "Skeptic",
+      "action": "challenge",
+      "detail": "H02 (single_bidder): need corroboration before I accept this",
+      "data": {
+        "hypothesis": "H02",
+        "questions": [
+          "corroboration"
+        ]
+      }
+    },
+    {
+      "step": 11,
+      "iteration": 1,
+      "agent": "Investigator",
+      "action": "identity_verification",
+      "detail": "H01: Officer nationality CY vs sanctions entry country CY: consistent",
+      "data": {
+        "hypothesis": "H01",
+        "evidence": "E003"
+      }
+    },
+    {
+      "step": 12,
+      "iteration": 1,
+      "agent": "Investigator",
+      "action": "corroboration",
+      "detail": "H02: 1 other open red flag(s) involve the same companies: H01",
+      "data": {
+        "hypothesis": "H02",
+        "evidence": "E004"
+      }
+    },
+    {
+      "step": 13,
+      "iteration": 2,
+      "agent": "Skeptic",
+      "action": "follow_up",
+      "detail": "H01: Identity is consistent. Before escalating, check whether this company shows other red flags.",
+      "data": {
+        "hypothesis": "H01",
+        "questions": [
+          "corroboration"
+        ]
+      }
+    },
+    {
+      "step": 14,
+      "iteration": 2,
+      "agent": "Skeptic",
+      "action": "supported",
+      "detail": "H02: Sole-bidder wins corroborated by H01.",
+      "data": {
+        "hypothesis": "H02",
+        "confidence": 0.7
+      }
+    },
+    {
+      "step": 15,
+      "iteration": 2,
+      "agent": "Investigator",
+      "action": "corroboration",
+      "detail": "H01: 1 other open red flag(s) involve the same companies: H02",
+      "data": {
+        "hypothesis": "H01",
+        "evidence": "E005"
+      }
+    },
+    {
+      "step": 16,
+      "iteration": 3,
+      "agent": "Skeptic",
+      "action": "supported",
+      "detail": "H01: Identity consistent and corroborated by H02.",
+      "data": {
+        "hypothesis": "H01",
+        "confidence": 0.92
+      }
+    },
+    {
+      "step": 17,
+      "iteration": 3,
+      "agent": "Reporter",
+      "action": "report",
+      "detail": "1 risk network(s), 0 red flag(s) explained away",
+      "data": {}
+    }
+  ],
+  "report": {
+    "summary": {
+      "hypotheses": 2,
+      "supported": 2,
+      "dismissed": 0,
+      "networks": 1,
+      "iterations": 3,
+      "data_source": "local-csv"
+    },
+    "networks": [
+      {
+        "companies": [
+          "C008"
+        ],
+        "company_names": [
+          "Orion Supply Co"
+        ],
+        "risk_score": 0.98,
+        "hypotheses": [
+          "H01",
+          "H02"
+        ],
+        "narrative": "Risk network of 1 companies with 2 corroborating red flags:\n- H01 [sanctions_match, confidence 0.92]: Officer Victor Petrov of Orion Supply Co closely matches sanctioned person Viktor Petrov (SAMPLE-SANCTIONS-LIST (synthetic)). Evidence: [E001] 'Victor Petrov' vs 'Viktor Petrov' name similarity 0.92; [E003] Officer nationality CY vs sanctions entry country CY: consistent; [E005] 1 other open red flag(s) involve the same companies: H02\n- H02 [single_bidder, confidence 0.7]: Orion Supply Co won 3 tenders where it was the only bidder. Evidence: [E002] Sole bidder on T13, T14, T15; [E004] 1 other open red flag(s) involve the same companies: H01\nNext step: request bid documents and ownership filings for these companies."
+      }
+    ],
+    "dismissed": [],
+    "disclaimer": "Risk indicators for human review — not findings of wrongdoing."
+  },
+  "graph": {
+    "nodes": [
+      {
+        "id": "C008",
+        "label": "Orion Supply Co",
+        "type": "company"
+      },
+      {
+        "id": "SANCTION:Viktor Petrov",
+        "label": "Viktor Petrov",
+        "type": "sanction"
+      }
+    ],
+    "links": [
+      {
+        "source": "C008",
+        "target": "SANCTION:Viktor Petrov",
+        "kind": "sanctions_match",
+        "status": "supported",
+        "hypothesis": "H01"
+      }
+    ]
+  }
+}
