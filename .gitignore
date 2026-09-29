@@ -1,0 +1,25 @@
+# Secrets — never commit
+.env
+*.env
+!.env.example
+
+# Python
+__pycache__/
+*.pyc
+.venv/
+venv/
+.pytest_cache/
+*.egg-info/
+
+# Node
+node_modules/
+dist/
+
+# Data pulled from real APIs (can be large)
+backend/data/raw/
+
+# OS / editors
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/

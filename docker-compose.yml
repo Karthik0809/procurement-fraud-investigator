@@ -1,0 +1,19 @@
+services:
+  backend:
+    build: ./backend
+    env_file: .env
+    ports: ["8000:8000"]
+
+  frontend:
+    build: ./frontend
+    environment:
+      API_URL: http://backend:8000
+    ports: ["5173:5173"]
+    depends_on: [backend]
+
+  # Uncomment on Day 4 when moving the relationship graph into Neo4j (see ROADMAP.md)
+  # neo4j:
+  #   image: neo4j:5
+  #   environment:
+  #     NEO4J_AUTH: neo4j/change-me
+  #   ports: ["7474:7474", "7687:7687"]

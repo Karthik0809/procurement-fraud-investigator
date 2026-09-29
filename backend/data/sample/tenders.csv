@@ -1,0 +1,16 @@
+tender_id,agency,category,title,award_date,estimated_value
+T01,Dept of Transport,road_resurfacing,Route 9 resurfacing,2024-01-15,1000000
+T02,Dept of Transport,road_resurfacing,Route 12 resurfacing,2024-03-02,1000000
+T03,Dept of Transport,road_resurfacing,Main St resurfacing,2024-04-20,1050000
+T04,Dept of Transport,road_resurfacing,Harbor Rd resurfacing,2024-06-11,1000000
+T05,Dept of Transport,road_resurfacing,Airport link resurfacing,2024-08-05,1000000
+T06,Dept of Transport,road_resurfacing,Ring road resurfacing,2024-10-01,1020000
+T07,Dept of Transport,road_resurfacing,Lakeside Rd resurfacing,2024-02-10,900000
+T08,Dept of Transport,road_resurfacing,Hillview bypass resurfacing,2024-05-14,1250000
+T09,Dept of Transport,road_resurfacing,River Rd resurfacing,2024-09-09,800000
+T10,Dept of Transport,bridge_inspection,North bridge inspection,2024-02-01,300000
+T11,Dept of Transport,bridge_inspection,South bridge inspection,2024-05-01,310000
+T12,Dept of Transport,bridge_inspection,East bridge inspection,2024-08-01,305000
+T13,Port Authority,marine_supplies,Dock fenders supply,2024-03-12,450000
+T14,Port Authority,marine_supplies,Mooring lines supply,2024-06-19,470000
+T15,Port Authority,marine_supplies,Buoy maintenance kit,2024-10-22,455000

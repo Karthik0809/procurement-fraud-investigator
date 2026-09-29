@@ -1,0 +1,12 @@
+company_id,name,address,city,registered_date
+C001,Apex Build Ltd,12 Harbor Street,Springfield,2015-03-02
+C002,Summit Construct LLC,88 Oak Ave Suite 4,Springfield,2019-06-11
+C003,Ridgeline Works Inc,"88 Oak Avenue, Suite 4",Springfield,2019-07-01
+C004,Northwind Paving Co,100 Registered Agent Way,Dover,2012-01-20
+C005,Bluestone Civil Ltd,100 Registered Agent Way,Dover,2014-09-09
+C006,Keystone Roads LLC,100 Registered Agent Way,Dover,2016-02-14
+C007,Meridian Infrastructure Inc,100 Registered Agent Way,Dover,2018-11-30
+C008,Orion Supply Co,5 Dock Road,Portville,2021-04-18
+C009,Clearwater Engineering Ltd,41 River Road,Lakeside,2010-05-05
+C010,Granite Line Ltd,7 Quarry Lane,Hillview,2011-08-23
+C011,Evergreen Utilities Inc,19 Elm Street,Hillview,2013-12-01

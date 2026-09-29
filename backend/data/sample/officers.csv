@@ -1,0 +1,13 @@
+officer_id,name,company_id,role,nationality
+O01,James Morrow,C001,Director,US
+O02,James A. Morrow,C003,Director,US
+O03,Linda Chu,C002,Director,US
+O04,Linda Chu,C003,Company Secretary,US
+O05,Paul Grant,C004,Director,US
+O06,Corporate Nominees Ltd,C005,Nominee Director,US
+O07,Corporate Nominees Ltd,C006,Nominee Director,US
+O08,Victor Petrov,C008,Director,CY
+O09,Sarah Olsen,C009,Director,US
+O10,Mark Diaz,C010,Director,US
+O11,Ana Ruiz,C011,Director,US
+O12,Tom Becker,C007,Director,US
